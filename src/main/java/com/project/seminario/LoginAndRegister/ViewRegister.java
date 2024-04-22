@@ -277,7 +277,7 @@ public class ViewRegister extends javax.swing.JFrame {
                                 st.setString(4, password);
                                 st.setString(5, course);
 
-                                int res = st.executeUpdate();
+                                // int res = st.executeUpdate();
                                 JOptionPane.showMessageDialog(rootPane, "Usuário cadastrado com sucesso!", "Sucesso",
                                                 JOptionPane.INFORMATION_MESSAGE);
                         }
