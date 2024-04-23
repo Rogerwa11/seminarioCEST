@@ -239,7 +239,8 @@ public class ViewRegister extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "Todos os campos devem ser preenchidos!", "Erro",
                                         JOptionPane.ERROR_MESSAGE);
                 } else {
-                        userRegister(email, password, name, registration, course);
+                        int registrationInt = Integer.parseInt(registration);
+                        userRegister(email, password, name, registrationInt, course);
                 }
         }
 
@@ -250,7 +251,7 @@ public class ViewRegister extends javax.swing.JFrame {
                 l.setVisible(true);
         }
 
-        private void userRegister(String email, String password, String name, String registration, String course) {
+        private void userRegister(String email, String password, String name, int registration, String course) {
                 Connection dbconn = null;
                 try {
                         dbconn = DBConnection.getConnection();
@@ -261,7 +262,7 @@ public class ViewRegister extends javax.swing.JFrame {
 
                         PreparedStatement checkStmt = dbconn
                                         .prepareStatement("SELECT * FROM usuario WHERE matricula = ?");
-                        checkStmt.setString(1, registration);
+                        checkStmt.setInt(1, registration);
                         ResultSet rs = checkStmt.executeQuery();
 
                         if (rs.next()) {
@@ -271,7 +272,7 @@ public class ViewRegister extends javax.swing.JFrame {
                                 PreparedStatement st = (PreparedStatement) dbconn
                                                 .prepareStatement(
                                                                 "INSERT INTO usuario (matricula,email,nome,senha,curso) VALUES(?,?,?,?,?)");
-                                st.setString(1, registration);
+                                st.setInt(1, registration);
                                 st.setString(2, email);
                                 st.setString(3, name);
                                 st.setString(4, password);
