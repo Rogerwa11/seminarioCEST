@@ -57,6 +57,11 @@ public class ViewLogin extends javax.swing.JFrame {
         jLabel3.setText("Matrícula:");
 
         jTextFieldRegistration.setCaretColor(new java.awt.Color(0, 0, 102));
+        jTextFieldRegistration.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldRegistrationKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Senha:");
 
@@ -144,6 +149,14 @@ public class ViewLogin extends javax.swing.JFrame {
                                 javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
 
         pack();
+    }
+
+    private void jTextFieldRegistrationKeyTyped(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {
