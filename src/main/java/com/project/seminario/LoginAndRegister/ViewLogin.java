@@ -166,11 +166,12 @@ public class ViewLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "O campo matrícula não pode estar vazio!", "Error",
                     JOptionPane.ERROR_MESSAGE);
         } else {
-            userLogin(registration, password);
+            int registrationInt = Integer.parseInt(registration);
+            userLogin(registrationInt, password);
         }
     }
 
-    private void userLogin(String registration, String password) {
+    private void userLogin(int registration, String password) {
         Connection dbconn = null;
         try {
             dbconn = DBConnection.getConnection();
@@ -180,7 +181,7 @@ public class ViewLogin extends javax.swing.JFrame {
         try {
             PreparedStatement st = (PreparedStatement) dbconn
                     .prepareStatement("Select * from usuario WHERE matricula = ? AND senha = ?");
-            st.setString(1, registration);
+            st.setInt(1, registration);
             st.setString(2, password);
             ResultSet res = st.executeQuery();
             if (res.next()) {
