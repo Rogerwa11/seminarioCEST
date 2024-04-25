@@ -166,9 +166,7 @@ public class ViewLogin extends javax.swing.JFrame {
         r.setVisible(true);
     }
 
-    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {
-        String registration = jTextFieldRegistration.getText();
-        String password = String.valueOf(jPasswordFieldPass.getPassword());
+    private void verificarCampos(String registration, String password) {
         if (password.isEmpty() && registration.isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Os campos matrícula e senha não podem estar vazios", "Error",
                     JOptionPane.ERROR_MESSAGE);
@@ -182,6 +180,12 @@ public class ViewLogin extends javax.swing.JFrame {
             int registrationInt = Integer.parseInt(registration);
             userLogin(registrationInt, password);
         }
+    }
+
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {
+        String registration = jTextFieldRegistration.getText();
+        String password = String.valueOf(jPasswordFieldPass.getPassword());
+        verificarCampos(registration, password);
     }
 
     private void userLogin(int registration, String password) {

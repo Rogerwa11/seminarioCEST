@@ -227,13 +227,7 @@ public class ViewRegister extends javax.swing.JFrame {
                 }
         }
 
-        private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {
-                String email = jTextFieldEmail.getText();
-                String password = String.valueOf(jPasswordFieldPass.getPassword());
-                String name = jTextFieldName.getText();
-                String registration = jTextFieldRegistration.getText();
-                String course = jTextFieldCourse.getText();
-
+        private void verificarCampos(String email, String password, String name, String registration, String course) {
                 if (password.isEmpty() || email.isEmpty() || name.isEmpty() || registration.isEmpty()
                                 || course.isEmpty()) {
                         JOptionPane.showMessageDialog(rootPane, "Todos os campos devem ser preenchidos!", "Erro",
@@ -242,6 +236,16 @@ public class ViewRegister extends javax.swing.JFrame {
                         int registrationInt = Integer.parseInt(registration);
                         userRegister(email, password, name, registrationInt, course);
                 }
+        }
+
+        private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {
+                String email = jTextFieldEmail.getText();
+                String password = String.valueOf(jPasswordFieldPass.getPassword());
+                String name = jTextFieldName.getText();
+                String registration = jTextFieldRegistration.getText();
+                String course = jTextFieldCourse.getText();
+
+                verificarCampos(email, password, name, registration, course);
         }
 
         private void jButtonBackToLoginActionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,7 +282,7 @@ public class ViewRegister extends javax.swing.JFrame {
                                 st.setString(4, password);
                                 st.setString(5, course);
 
-                                // int res = st.executeUpdate();
+                                int res = st.executeUpdate();
                                 JOptionPane.showMessageDialog(rootPane, "Usuário cadastrado com sucesso!", "Sucesso",
                                                 JOptionPane.INFORMATION_MESSAGE);
                         }
