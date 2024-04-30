@@ -4,8 +4,6 @@
  */
 package com.project.seminario.Dashboard;
 
-import java.awt.Color;
-import javax.swing.JPanel;
 
 /**
  *
@@ -162,10 +160,10 @@ public class DashboardCriarProjeto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMenuActionPerformed
-        setColor(painelMenu);
-        resetColor(painelCriarProjeto);
-        dispose();
         DashboardMenu m = new DashboardMenu();
+        m.setColor(painelMenu);
+        m.resetColor(painelCriarProjeto);
+        dispose();
         m.setVisible(true);
     }//GEN-LAST:event_botaoMenuActionPerformed
 
@@ -178,16 +176,11 @@ public class DashboardCriarProjeto extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCriarProjetoFocusGained
 
     private void botaoCriarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarProjetoActionPerformed
-        setColor(painelCriarProjeto);
-        resetColor(painelMenu);
+        DashboardMenu m = new DashboardMenu();
+        m.setColor(painelCriarProjeto);
+        m.resetColor(painelMenu);
     }//GEN-LAST:event_botaoCriarProjetoActionPerformed
-    void setColor(JPanel panel){
-        panel.setBackground(new Color(3,75,93));
-    }
-    
-    void resetColor(JPanel panel){
-        panel.setBackground(new Color(5,111,137));
-    }
+
     /**
      * @param args the command line arguments
      */

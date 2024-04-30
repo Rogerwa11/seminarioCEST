@@ -184,11 +184,11 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botaoCriarProjetoFocusGained
 
-    void setColor(JPanel panel){
+    public void setColor(JPanel panel){
         panel.setBackground(new Color(3,75,93));
     }
     
-    void resetColor(JPanel panel){
+    public void resetColor(JPanel panel){
         panel.setBackground(new Color(5,111,137));
     }
     public static void main(String args[]) {
