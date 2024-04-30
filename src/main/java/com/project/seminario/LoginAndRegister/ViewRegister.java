@@ -227,7 +227,8 @@ public class ViewRegister extends javax.swing.JFrame {
                 }
         }
 
-        private void verificarCampos(String email, String password, String name, String registration, String course) {
+        private void verificarCamposRegister(String email, String password, String name, String registration,
+                        String course) {
                 if (password.isEmpty() || email.isEmpty() || name.isEmpty() || registration.isEmpty()
                                 || course.isEmpty()) {
                         JOptionPane.showMessageDialog(rootPane, "Todos os campos devem ser preenchidos!", "Erro",
@@ -245,7 +246,7 @@ public class ViewRegister extends javax.swing.JFrame {
                 String registration = jTextFieldRegistration.getText();
                 String course = jTextFieldCourse.getText();
 
-                verificarCampos(email, password, name, registration, course);
+                verificarCamposRegister(email, password, name, registration, course);
         }
 
         private void jButtonBackToLoginActionPerformed(java.awt.event.ActionEvent evt) {
