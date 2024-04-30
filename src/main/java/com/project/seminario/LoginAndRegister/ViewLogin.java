@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 import com.project.seminario.DBConnection;
 
-import com.project.seminario.Dashboard.Dashboard;
+import com.project.seminario.Dashboard.DashboardMenu;
 
 public class ViewLogin extends javax.swing.JFrame {
     DBConnection conn;
@@ -204,7 +204,7 @@ public class ViewLogin extends javax.swing.JFrame {
             if (res.next()) {
                 // tela de acesso ao sistema!!
                 dispose();
-                Dashboard d = new Dashboard();
+                DashboardMenu d = new DashboardMenu();
                 d.setTitle("Dashboard");
                 d.setVisible(true);
             } else {
