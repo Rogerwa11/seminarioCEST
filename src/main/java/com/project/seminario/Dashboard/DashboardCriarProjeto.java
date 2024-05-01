@@ -4,6 +4,8 @@
  */
 package com.project.seminario.Dashboard;
 
+import java.awt.Color;
+
 
 /**
  *
@@ -158,11 +160,12 @@ public class DashboardCriarProjeto extends javax.swing.JFrame {
 
         setBounds(0, 0, 916, 608);
     }// </editor-fold>//GEN-END:initComponents
-
+    Color corForte = new Color(3,75,93);
+    Color corFraca = new Color(5,111,137);
     private void botaoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMenuActionPerformed
         DashboardMenu m = new DashboardMenu();
-        m.setColor(painelMenu);
-        m.resetColor(painelCriarProjeto);
+        m.setColor(painelMenu, corForte);
+        m.resetColor(painelCriarProjeto, corFraca);
         dispose();
         m.setVisible(true);
     }//GEN-LAST:event_botaoMenuActionPerformed
@@ -177,8 +180,8 @@ public class DashboardCriarProjeto extends javax.swing.JFrame {
 
     private void botaoCriarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarProjetoActionPerformed
         DashboardMenu m = new DashboardMenu();
-        m.setColor(painelCriarProjeto);
-        m.resetColor(painelMenu);
+        m.setColor(painelCriarProjeto, corFraca);
+        m.resetColor(painelMenu, corFraca);
     }//GEN-LAST:event_botaoCriarProjetoActionPerformed
 
     /**

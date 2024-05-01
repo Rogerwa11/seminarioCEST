@@ -162,15 +162,16 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         setBounds(0, 0, 900, 600);
     }// </editor-fold>//GEN-END:initComponents
-
+    Color corForte = new Color(3,75,93);
+    Color corFraca = new Color(5,111,137);
     private void botaoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMenuActionPerformed
-        setColor(painelMenu);
-        resetColor(painelCriarProjeto);
+        setColor(painelMenu, corForte);
+        resetColor(painelCriarProjeto, corFraca);
     }//GEN-LAST:event_botaoMenuActionPerformed
     
     private void botaoCriarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarProjetoActionPerformed
-        setColor(painelCriarProjeto);
-        resetColor(painelMenu);
+        setColor(painelCriarProjeto, corForte);
+        resetColor(painelMenu, corFraca);
         dispose();
         DashboardCriarProjeto m = new DashboardCriarProjeto();
         m.setVisible(true);
@@ -184,12 +185,12 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botaoCriarProjetoFocusGained
 
-    public void setColor(JPanel panel){
-        panel.setBackground(new Color(3,75,93));
+    public void setColor(JPanel panel, Color color){
+        panel.setBackground(color);
     }
     
-    public void resetColor(JPanel panel){
-        panel.setBackground(new Color(5,111,137));
+    public void resetColor(JPanel panel, Color color){
+        panel.setBackground(color);
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
