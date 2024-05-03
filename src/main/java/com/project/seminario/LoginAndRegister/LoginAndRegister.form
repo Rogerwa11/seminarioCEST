@@ -64,20 +64,20 @@
                           <Component id="tfEmail" max="32767" attributes="0"/>
                           <Component id="jPanel2" pref="250" max="32767" attributes="0"/>
                           <Component id="labelEmail" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfNome" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfName" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel4" alignment="0" pref="250" max="32767" attributes="0"/>
-                          <Component id="labelMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfMatricula" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelRegistration" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfRegistration" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel5" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Component id="labelCurso" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfCurso" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelCourse" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfCourse" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel8" alignment="0" pref="250" max="32767" attributes="0"/>
                           <Component id="jPanel9" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="tfSenha" alignment="0" max="32767" attributes="0"/>
+                          <Component id="tfPassword" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel12" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -96,27 +96,27 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="labelSenha" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="labelPassword" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="tfSenha" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="labelNome" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="labelName" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="tfNome" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfName" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="labelMatricula" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="labelRegistration" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="tfMatricula" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfRegistration" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="labelCurso" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="labelCourse" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="tfCurso" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfCourse" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -145,11 +145,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" pref="130" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="labelSenhaLogin" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfMatriculaLogin" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelPasswordLogin" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfRegistrationLogin" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel10" alignment="0" pref="262" max="32767" attributes="0"/>
-                              <Component id="labelMatriculaLogin" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfSenhaLogin" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelRegistrationLogin" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfPasswordLogin" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel11" alignment="0" pref="262" max="32767" attributes="0"/>
                               <Component id="jPanel3" max="32767" attributes="0"/>
                           </Group>
@@ -164,15 +164,15 @@
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="labelMatriculaLogin" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="labelRegistrationLogin" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="tfMatriculaLogin" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfRegistrationLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="labelSenhaLogin" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="labelPasswordLogin" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="tfSenhaLogin" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfPasswordLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -183,7 +183,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="labelMatriculaLogin">
+            <Component class="javax.swing.JLabel" name="labelRegistrationLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
@@ -194,7 +194,7 @@
                 <Property name="text" type="java.lang.String" value="Matr&#xed;cula:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfMatriculaLogin">
+            <Component class="javax.swing.JTextField" name="tfRegistrationLogin">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7e" green="68" red="8" type="rgb"/>
@@ -204,10 +204,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfMatriculaLoginKeyTyped"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfRegistrationLoginKeyTyped"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfMatriculaLogin.setBorder(null);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfRegistrationLogin.setBorder(null);"/>
               </AuxValues>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel10">
@@ -233,7 +233,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JLabel" name="labelSenhaLogin">
+            <Component class="javax.swing.JLabel" name="labelPasswordLogin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
@@ -244,7 +244,7 @@
                 <Property name="text" type="java.lang.String" value="Senha:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="tfSenhaLogin">
+            <Component class="javax.swing.JPasswordField" name="tfPasswordLogin">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7e" green="68" red="8" type="rgb"/>
@@ -254,7 +254,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfSenhaLogin.setBorder(null);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfPasswordLogin.setBorder(null);"/>
               </AuxValues>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel11">
@@ -296,17 +296,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="BotaoLogin" alignment="0" pref="262" max="32767" attributes="0"/>
+                      <Component id="loginButton" alignment="0" pref="262" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="BotaoLogin" alignment="0" pref="40" max="32767" attributes="0"/>
+                      <Component id="loginButton" alignment="0" pref="40" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="BotaoLogin">
+                <Component class="javax.swing.JButton" name="loginButton">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI Semibold" size="18" style="0"/>
@@ -317,12 +317,12 @@
                     <Property name="text" type="java.lang.String" value="Entrar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotaoLoginMouseEntered"/>
-                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotaoLoginMouseExited"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLoginActionPerformed"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginButtonMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginButtonMouseExited"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginButtonActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="BotaoLogin.setBorder(null);&#xa;BotaoLogin.setContentAreaFilled(false);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="loginButton.setBorder(null);&#xa;loginButton.setContentAreaFilled(false);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -383,7 +383,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="labelSenha">
+        <Component class="javax.swing.JLabel" name="labelPassword">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
@@ -394,7 +394,7 @@
             <Property name="text" type="java.lang.String" value="Senha:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="tfSenha">
+        <Component class="javax.swing.JPasswordField" name="tfPassword">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="6f" red="5" type="rgb"/>
@@ -404,7 +404,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfSenha.setBorder(null);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfPassword.setBorder(null);"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel12">
@@ -430,7 +430,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="labelNome">
+        <Component class="javax.swing.JLabel" name="labelName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
@@ -441,7 +441,7 @@
             <Property name="text" type="java.lang.String" value="Nome completo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfNome">
+        <Component class="javax.swing.JTextField" name="tfName">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="6f" red="5" type="rgb"/>
@@ -451,7 +451,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfNome.setBorder(null);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfName.setBorder(null);"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel4">
@@ -477,7 +477,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="labelMatricula">
+        <Component class="javax.swing.JLabel" name="labelRegistration">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
@@ -488,7 +488,7 @@
             <Property name="text" type="java.lang.String" value="Matr&#xed;cula:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfMatricula">
+        <Component class="javax.swing.JTextField" name="tfRegistration">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="6f" red="5" type="rgb"/>
@@ -498,10 +498,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfMatriculaKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfRegistrationKeyTyped"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfMatricula.setBorder(null);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfRegistration.setBorder(null);"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel5">
@@ -615,7 +615,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="labelCurso">
+        <Component class="javax.swing.JLabel" name="labelCourse">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
@@ -626,7 +626,7 @@
             <Property name="text" type="java.lang.String" value="Curso:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfCurso">
+        <Component class="javax.swing.JTextField" name="tfCourse">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="6f" red="5" type="rgb"/>
@@ -636,7 +636,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfCurso.setBorder(null);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tfCourse.setBorder(null);"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel8">
@@ -685,17 +685,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="BotaoRegister" alignment="0" max="32767" attributes="0"/>
+                  <Component id="registerButton" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="BotaoRegister" alignment="0" pref="40" max="32767" attributes="0"/>
+                  <Component id="registerButton" alignment="0" pref="40" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BotaoRegister">
+            <Component class="javax.swing.JButton" name="registerButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Semibold" size="18" style="0"/>
@@ -706,12 +706,12 @@
                 <Property name="text" type="java.lang.String" value="Criar conta"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotaoRegisterMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotaoRegisterMouseExited"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoRegisterActionPerformed"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerButtonMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerButtonMouseExited"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="BotaoRegister.setBorder(null);&#xa;BotaoRegister.setContentAreaFilled(false);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="registerButton.setBorder(null);&#xa;registerButton.setContentAreaFilled(false);"/>
               </AuxValues>
             </Component>
           </SubComponents>
