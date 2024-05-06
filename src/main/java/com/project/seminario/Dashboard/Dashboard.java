@@ -25,10 +25,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     public void reloadDashboard() {
         initComponents();
-        UserPanel UserPanel = new UserPanel(this.conn);
-        UserPanel.getUserInformations(123);
-        UserPanel.reloadUserPanel();
-        jPanelContent.add(UserPanel).setVisible(true);
+        setUserPanel();
         
     }
 
