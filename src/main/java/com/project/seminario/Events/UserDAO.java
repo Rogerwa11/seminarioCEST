@@ -1,21 +1,19 @@
 package com.project.seminario.Events;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import com.project.seminario.DBConnection;
 
 public class UserDAO {
-
-    private Connection connection;
-
-    public UserDAO(Connection connection) {
-        this.connection = connection;
+    private DBConnection conn;
+    
+    public UserDAO(DBConnection conn){
+        this.conn = conn;
     }
 
     public User searchUserRegistration(int registration) throws SQLException {
-        String sql = "SELECT * FROM usuario WHERE matricula = ?";
-        PreparedStatement st = connection.prepareStatement(sql);
+        PreparedStatement st = this.conn.getConnection().prepareStatement("SELECT * FROM usuario WHERE matricula = ?");
         st.setInt(1, registration);
 
         ResultSet rs = st.executeQuery();

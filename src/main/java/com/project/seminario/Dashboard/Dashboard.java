@@ -1,17 +1,37 @@
 package com.project.seminario.Dashboard;
 
+import com.project.seminario.DBConnection;
 import com.project.seminario.Dashboard.Panels.CreateProjectPanel;
 import com.project.seminario.Dashboard.Panels.UserPanel;
 import java.awt.Color;
 import com.project.seminario.Events.Colors;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Dashboard extends javax.swing.JFrame {
+
     private int registration;
     private String password;
+    private DBConnection conn;
     Colors color = new Colors();
     Color strongColor = new Color(3, 75, 93);
     Color weakColor = new Color(5, 111, 137);
-    
+
+    public Dashboard(DBConnection conn) {
+        this.conn = conn;
+        initComponents();
+    }
+
+    public void reloadDashboard() {
+        initComponents();
+        UserPanel UserPanel = new UserPanel(this.conn);
+        UserPanel.getUserInformations(123);
+        UserPanel.reloadUserPanel();
+        jPanelContent.add(UserPanel).setVisible(true);
+        
+    }
+
     public void setRegistration(int registration) {
         this.registration = registration;
     }
@@ -19,23 +39,15 @@ public class Dashboard extends javax.swing.JFrame {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public int getRegistration(){
+
+    public int getRegistration() {
         return this.registration;
     }
-    
-    public String getPassword(){
+
+    public String getPassword() {
         return this.password;
     }
-    
-    public Dashboard() {
-        initComponents();
-    }
-    
-    public void reloadDashboard(){
-        initComponents();
-    }
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -55,12 +67,16 @@ public class Dashboard extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(910, 560));
         setMinimumSize(new java.awt.Dimension(910, 560));
         setPreferredSize(new java.awt.Dimension(1600, 900));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setForeground(new java.awt.Color(255, 255, 255));
         bg.setToolTipText("");
         setResizable(false);
-        setUserPanel();
 
         sidepane.setBackground(new java.awt.Color(8, 104, 126));
         sidepane.setRequestFocusEnabled(false);
@@ -70,11 +86,6 @@ public class Dashboard extends javax.swing.JFrame {
         homePanel.setFocusable(false);
         homePanel.setRequestFocusEnabled(false);
         homePanel.setVerifyInputWhenFocusTarget(false);
-        homePanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homePanelMouseClicked(evt);
-            }
-        });
 
         userInfosButton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         userInfosButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,11 +131,6 @@ public class Dashboard extends javax.swing.JFrame {
         createProjectsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         createProjectsButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         createProjectsButton.setIconTextGap(56);
-        createProjectsButton.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                createProjectsButtonFocusGained(evt);
-            }
-        });
         createProjectsButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 createProjectsButtonMouseClicked(evt);
@@ -160,11 +166,6 @@ public class Dashboard extends javax.swing.JFrame {
         nextButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         nextButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         nextButton.setIconTextGap(40);
-        nextButton.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                nextButtonFocusGained(evt);
-            }
-        });
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -276,18 +277,6 @@ public class Dashboard extends javax.swing.JFrame {
         color.setColor(nextPanel, weakColor);
     }//GEN-LAST:event_createProjectsButtonActionPerformed
 
-    private void homePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homePanelMouseClicked
-        
-    }//GEN-LAST:event_homePanelMouseClicked
-
-    private void createProjectsButtonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_createProjectsButtonFocusGained
-
-    }//GEN-LAST:event_createProjectsButtonFocusGained
-
-    private void nextButtonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nextButtonFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nextButtonFocusGained
-
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         color.setColor(nextPanel, strongColor);
         color.setColor(createProjectsPanel, weakColor);
@@ -299,8 +288,8 @@ public class Dashboard extends javax.swing.JFrame {
         jPanelContent.removeAll();
         jPanelContent.add(CreateProjectPanel).setVisible(true);
     }//GEN-LAST:event_createProjectsButtonMouseClicked
-    private void setUserPanel(){
-        UserPanel UserPanel = new UserPanel();
+    private void setUserPanel() {
+        UserPanel UserPanel = new UserPanel(this.conn);
         jPanelContent.removeAll();
         UserPanel.getUserInformations(this.registration);
         UserPanel.reloadUserPanel();
@@ -309,6 +298,15 @@ public class Dashboard extends javax.swing.JFrame {
     private void userInfosButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userInfosButtonMouseClicked
         setUserPanel();
     }//GEN-LAST:event_userInfosButtonMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try {
+            this.conn.getConnection().close();
+            System.out.print("conexão fechada");
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;

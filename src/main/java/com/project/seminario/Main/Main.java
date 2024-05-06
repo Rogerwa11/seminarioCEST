@@ -1,5 +1,6 @@
 package com.project.seminario.Main;
 
+import com.project.seminario.DBConnection;
 import com.project.seminario.LoginAndRegister.LoginAndRegister;
 
 public class Main {
@@ -24,8 +25,8 @@ public class Main {
             java.util.logging.Logger.getLogger(LoginAndRegister.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         }
-
-        LoginAndRegister login = new LoginAndRegister();
+        DBConnection conn = new DBConnection();
+        LoginAndRegister login = new LoginAndRegister(conn);
         login.setVisible(true);
     }
 }
