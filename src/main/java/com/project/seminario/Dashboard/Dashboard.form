@@ -98,7 +98,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="homePanel" max="32767" attributes="0"/>
+                  <Component id="userInfosPanel" max="32767" attributes="0"/>
                   <Component id="createProjectsPanel" alignment="0" max="32767" attributes="0"/>
                   <Component id="nextPanel" alignment="1" max="32767" attributes="0"/>
               </Group>
@@ -107,7 +107,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                      <Component id="homePanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="userInfosPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="createProjectsPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -118,10 +118,10 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="homePanel">
+            <Container class="javax.swing.JPanel" name="userInfosPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5d" green="4b" red="3" type="rgb"/>
+                  <Color blue="89" green="6f" red="5" type="rgb"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="requestFocusEnabled" type="boolean" value="false"/>
@@ -162,7 +162,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="userInfosButtonMouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userInfosButtonActionPerformed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="userInfosButtonMousePressed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -208,7 +208,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="createProjectsButtonMouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createProjectsButtonActionPerformed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="createProjectsButtonMousePressed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -253,7 +253,7 @@
                     <Property name="iconTextGap" type="int" value="40"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextButtonActionPerformed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nextButtonMousePressed"/>
                   </Events>
                 </Component>
               </SubComponents>

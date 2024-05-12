@@ -45,6 +45,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
         initComponents();
     }
 
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -499,14 +500,14 @@ public class LoginAndRegister extends javax.swing.JFrame {
         setBounds(0, 0, 828, 508);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowClosing
         try {
             this.conn.getConnection().close();
             System.out.print("Conexão fechada");
         } catch (SQLException ex) {
             Logger.getLogger(LoginAndRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_formWindowClosing
+    }// GEN-LAST:event_formWindowClosing
 
     private void loginButtonMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_loginButtonMouseEntered
         color.setColor(jPanel3, corForte);
