@@ -7,8 +7,8 @@ import com.project.seminario.DBConnection;
 
 public class UserDAO {
     private DBConnection conn;
-    
-    public UserDAO(DBConnection conn){
+
+    public UserDAO(DBConnection conn) {
         this.conn = conn;
     }
 

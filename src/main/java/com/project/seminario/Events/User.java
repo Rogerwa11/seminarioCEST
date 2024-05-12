@@ -7,7 +7,7 @@ public class User {
     private String password;
     private String name;
     private String email;
-    
+
     public User(int registration, String course, String password, String name, String email) {
         this.registration = registration;
         this.course = course;
@@ -55,5 +55,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 }
