@@ -1,4 +1,4 @@
-package com.project.seminario.Events;
+package com.project.seminario.Classes;
 
 public class User {
 

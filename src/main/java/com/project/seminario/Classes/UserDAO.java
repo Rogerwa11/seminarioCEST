@@ -1,4 +1,4 @@
-package com.project.seminario.Events;
+package com.project.seminario.Classes;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import com.project.seminario.DBConnection;
 
 public class UserDAO {
+
     private DBConnection conn;
 
     public UserDAO(DBConnection conn) {
