@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import com.project.seminario.Classes.Colors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class LoginAndRegister extends javax.swing.JFrame {
 
@@ -45,8 +43,6 @@ public class LoginAndRegister extends javax.swing.JFrame {
         initComponents();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -60,7 +56,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         loginButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         labelEmail = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -85,7 +81,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Hello");
+        setTitle("Painel de acesso");
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -182,7 +178,9 @@ public class LoginAndRegister extends javax.swing.JFrame {
             .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoCESTazul.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT Condensed", 1, 36)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/portal-entrar (1).png"))); // NOI18N
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,24 +188,26 @@ public class LoginAndRegister extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(labelPasswordLogin)
-                        .addComponent(tfRegistrationLogin)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                        .addComponent(labelRegistrationLogin)
-                        .addComponent(tfPasswordLogin)
-                        .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelPasswordLogin)
+                    .addComponent(tfRegistrationLogin)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                    .addComponent(labelRegistrationLogin)
+                    .addComponent(tfPasswordLogin)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(156, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(142, 142, 142))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(61, 61, 61)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelRegistrationLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(tfRegistrationLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,7 +417,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(registerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
@@ -502,31 +502,31 @@ public class LoginAndRegister extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {
         try {
             this.conn.getConnection().close();
             System.out.print("Conexão fechada");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }// GEN-LAST:event_formWindowClosing
+    }
 
-    private void loginButtonMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_loginButtonMouseEntered
+    private void loginButtonMouseEntered(java.awt.event.MouseEvent evt) {
         color.setColor(jPanel3, corForte);
-    }// GEN-LAST:event_loginButtonMouseEntered
+    }
 
-    private void loginButtonMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_loginButtonMouseExited
+    private void loginButtonMouseExited(java.awt.event.MouseEvent evt) {
         color.setColor(jPanel3, corFraca);
-    }// GEN-LAST:event_loginButtonMouseExited
+    }
 
-    private void registerButtonMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_registerButtonMouseEntered
+    private void registerButtonMouseEntered(java.awt.event.MouseEvent evt) {
         color.setColor(jPanel9, corForte);
-    }// GEN-LAST:event_registerButtonMouseEntered
+    }
 
-    private void registerButtonMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_registerButtonMouseExited
+    private void registerButtonMouseExited(java.awt.event.MouseEvent evt) {
         Color corFraca1 = new Color(8, 104, 126);
         color.setColor(jPanel9, corFraca1);
-    }// GEN-LAST:event_registerButtonMouseExited
+    }
 
     private void userLogin(int registration, String password) {
         try {
@@ -615,23 +615,23 @@ public class LoginAndRegister extends javax.swing.JFrame {
         }
     }
 
-    private void tfRegistrationLoginKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_tfMatriculaLoginKeyTyped
+    private void tfRegistrationLoginKeyTyped(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
 
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-    }// GEN-LAST:event_tfMatriculaLoginKeyTyped
+    }
 
-    private void tfRegistrationKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_tfMatriculaKeyTyped
+    private void tfRegistrationKeyTyped(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
 
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-    }// GEN-LAST:event_tfMatriculaKeyTyped
+    }
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BotaoRegisterActionPerformed
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String email = tfEmail.getText();
         String password = String.valueOf(tfPassword.getPassword());
         String name = tfName.getText();
@@ -639,17 +639,17 @@ public class LoginAndRegister extends javax.swing.JFrame {
         String course = tfCourse.getText();
 
         verificarCamposRegister(email, password, name, registration, course);
-    }// GEN-LAST:event_BotaoRegisterActionPerformed
+    }
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BotaoLoginActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String registration = tfRegistrationLogin.getText();
         String password = String.valueOf(tfPasswordLogin.getPassword());
         verificarCamposLogin(registration, password);
-    }// GEN-LAST:event_BotaoLoginActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

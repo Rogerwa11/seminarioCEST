@@ -88,7 +88,6 @@ public class ProjectPanel extends javax.swing.JInternalFrame {
         this.course = course;
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

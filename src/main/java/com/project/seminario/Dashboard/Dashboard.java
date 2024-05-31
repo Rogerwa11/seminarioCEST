@@ -5,8 +5,6 @@ import com.project.seminario.Dashboard.Panels.ProjectPanel;
 import com.project.seminario.Dashboard.Panels.UserPanel;
 import com.project.seminario.Classes.Colors;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -24,6 +22,15 @@ public class Dashboard extends javax.swing.JFrame {
     public void reloadDashboard() {
         initComponents();
 
+    }
+    
+    private void closeConn(){
+        try {
+            this.conn.getConnection().close();
+            System.out.print("conexão fechada");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void setRegistration(int registration) {
@@ -62,7 +69,7 @@ public class Dashboard extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("DashBoardHome");
+        setTitle("Menú principal");
         setMaximumSize(new java.awt.Dimension(910, 560));
         setMinimumSize(new java.awt.Dimension(910, 560));
         setPreferredSize(new java.awt.Dimension(1600, 900));
@@ -191,7 +198,7 @@ public class Dashboard extends javax.swing.JFrame {
         sidepaneLayout.setVerticalGroup(
             sidepaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidepaneLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(185, 185, 185)
                 .addComponent(userInfosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(createProjectsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,6 +239,7 @@ public class Dashboard extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("Gerenciamento de Projetos: Um módulo central que permita criar,\nvisualizar e acompanhar o progresso dos projetos de extensão. Ele pode\nincluir recursos como definição de metas, atribuição de tarefas, calendário\nde eventos, e acompanhamento de prazos.");
+        jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanelContentLayout = new javax.swing.GroupLayout(jPanelContent);
@@ -240,9 +248,9 @@ public class Dashboard extends javax.swing.JFrame {
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContentLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelContentLayout.setVerticalGroup(
@@ -251,8 +259,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
@@ -291,12 +299,7 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowClosing
-        try {
-            this.conn.getConnection().close();
-            System.out.print("conexão fechada");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        closeConn();
     }
 
     private void userInfosButtonMousePressed(java.awt.event.MouseEvent evt) {

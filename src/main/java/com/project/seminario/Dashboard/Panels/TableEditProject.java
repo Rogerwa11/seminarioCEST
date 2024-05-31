@@ -18,6 +18,84 @@ public class TableEditProject extends javax.swing.JFrame {
     private String endDate;
     private String status;
 
+    public void getProjectInformations(int id) {
+        try {
+            ProjectDAO dao = new ProjectDAO(this.conn);
+            Project project = dao.searchProjectId(id);
+            if (project != null) {
+                setId(project.getId());
+                setName(project.getName());
+                setDescription(project.getDescription());
+                setStartDate(project.getStartDate());
+                setEndDate(project.getEndDate());
+                setStatus(project.getStatus());
+                setUserRegistration(project.getUserRegistration());
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Projeto não encontrado com ID: " + id, "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
+        }
+    }
+
+    private void alterProject() {
+        try {
+
+            setName(tfName.getText());
+            setStatus(tfStatus.getText());
+            setStartDate(tfStartDate.getText());
+            setEndDate(tfEndDate.getText());
+            setDescription(tfDescription.getText());
+
+            PreparedStatement st = this.conn.getConnection().prepareStatement("UPDATE projeto SET nome = ?, descricao = ?, dataInicio = ?, dataFim = ?, status = ? WHERE idProjeto = ?");
+            st.setString(1, this.name);
+            st.setString(2, this.description);
+            st.setString(3, this.startDate);
+            st.setString(4, this.endDate);
+            st.setString(5, this.status);
+            st.setInt(6, this.id);
+
+            st.executeUpdate();
+
+            st.close();
+
+            JOptionPane.showMessageDialog(rootPane, "Projeto atualiazdo com sucesso!", "Sucesso",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void checkFields(String nameString, String statusString, String startDateString, String endDateString, String descriptionString) {
+        if (nameString.isEmpty() || statusString.isEmpty() || startDateString.isEmpty() || endDateString.isEmpty() || descriptionString.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Todos os campos devem ser preenchidos!", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            alterProject();
+        }
+    }
+
+    private void deleteProject(int projectId) {
+        try {
+            PreparedStatement st = this.conn.getConnection().prepareStatement("DELETE FROM projeto WHERE idProjeto = ?");
+            st.setInt(1, projectId);
+            st.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void confirmDeleteProject() {
+        int response = JOptionPane.showConfirmDialog(this, "Você deseja excluir o projeto: " + this.name, "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(response == JOptionPane.YES_OPTION){
+            int projectIdInt = Integer.parseInt(tfIdSearch.getText());
+            deleteProject(projectIdInt);
+        }
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -51,56 +129,6 @@ public class TableEditProject extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void getProjectInformations(int id) {
-        try {
-            ProjectDAO dao = new ProjectDAO(this.conn);
-            Project project = dao.searchProjectId(id);
-            if (project != null) {
-                setId(project.getId());
-                setName(project.getName());
-                setDescription(project.getDescription());
-                setStartDate(project.getStartDate());
-                setEndDate(project.getEndDate());
-                setStatus(project.getStatus());
-                setUserRegistration(project.getUserRegistration());
-            } else {
-                System.out.println("Projeto não encontrado com ID: " + id);
-            }
-        } catch (SQLException e) {
-            System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
-        }
-    }
-
-    private void alterProject() {
-        try {
-
-            setName(tfName.getText());
-            setStatus(tfStatus.getText());
-            setStartDate(tfStartDate.getText());
-            setEndDate(tfEndDate.getText());
-            setDescription(tfDescription.getText());
-
-            PreparedStatement st = this.conn.getConnection().prepareStatement
-        ("UPDATE projeto SET nome = ?, descricao = ?, dataInicio = ?, dataFim = ?, status = ? WHERE idProjeto = ?");
-            st.setString(1, this.name);
-            st.setString(2, this.description);
-            st.setString(3, this.startDate);
-            st.setString(4, this.endDate);
-            st.setString(5, this.status);
-            st.setInt(6, this.id);
-
-            st.executeUpdate();
-
-            st.close();
-
-            JOptionPane.showMessageDialog(rootPane, "Projeto atualiazdo com sucesso!", "Sucesso",
-                    JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -119,8 +147,15 @@ public class TableEditProject extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         searchButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        editMarkButton = new javax.swing.JButton();
+        editTaskButton = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Editar projetos");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         tfIdSearch.setText("1");
 
@@ -143,10 +178,33 @@ public class TableEditProject extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Enviar");
+        jButton1.setText("Registrar Projeto");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+
+        editMarkButton.setText("Editar meta");
+        editMarkButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editMarkButtonMouseClicked(evt);
+            }
+        });
+
+        editTaskButton.setText("Editar tarefa");
+        editTaskButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editTaskButtonMouseClicked(evt);
+            }
+        });
+
+        jLabel7.setText("Deletar projeto:");
+
+        deleteButton.setText("Deletar");
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
             }
         });
 
@@ -164,34 +222,40 @@ public class TableEditProject extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfDescription, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
-                                        .addComponent(jLabel3))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jLabel5))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(59, 59, 59))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(tfIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchButton)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(tfDescription)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(59, 59, 59))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addComponent(editMarkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168)
+                .addComponent(editTaskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(40, 40, 40))
+                .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,25 +264,30 @@ public class TableEditProject extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
-                .addGap(67, 67, 67)
+                    .addComponent(searchButton)
+                    .addComponent(jLabel7)
+                    .addComponent(deleteButton))
+                .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editMarkButton)
+                    .addComponent(editTaskButton))
                 .addGap(28, 28, 28))
         );
 
@@ -238,7 +307,13 @@ public class TableEditProject extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        alterProject();
+        String nameString = tfName.getText();
+        String statusString = tfStatus.getText();
+        String startDateString = tfStartDate.getText();
+        String endDateString = tfEndDate.getText();
+        String descriptionString = tfDescription.getText();
+
+        checkFields(nameString, statusString, startDateString, endDateString, descriptionString);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
@@ -261,7 +336,24 @@ public class TableEditProject extends javax.swing.JFrame {
         //System.out.print(this.description + "\n");
     }//GEN-LAST:event_searchButtonMouseClicked
 
+    private void editMarkButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMarkButtonMouseClicked
+        TableEditMark tableEditMark = new TableEditMark(this.conn);
+        tableEditMark.setVisible(true);
+    }//GEN-LAST:event_editMarkButtonMouseClicked
+
+    private void editTaskButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editTaskButtonMouseClicked
+        TableEditTask tableEditTask = new TableEditTask(this.conn);
+        tableEditTask.setVisible(true);
+    }//GEN-LAST:event_editTaskButtonMouseClicked
+
+    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
+        confirmDeleteProject();
+    }//GEN-LAST:event_deleteButtonMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editMarkButton;
+    private javax.swing.JButton editTaskButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -269,6 +361,7 @@ public class TableEditProject extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField tfDescription;

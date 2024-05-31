@@ -16,6 +16,54 @@ public class TableCreateProject extends javax.swing.JFrame {
     private String registrationString;
     private DBConnection conn;
 
+    public void reloadTableCreateProject() {
+        jTextField2.setText(this.registrationString);
+        System.err.println("reloadTableCreateProject");
+        // initComponents();
+    }
+
+    private void projectRegister(String projectName, String projectDescription, String projectStartDate,
+            String projectEndDate, String projectStatus, int registration) {
+        try {
+            PreparedStatement st = (PreparedStatement) conn.getConnection()
+                    .prepareStatement(
+                            "INSERT INTO projeto (nome,descricao,dataInicio,dataFim,status,usuario_matricula) VALUES(?,?,?,?,?,?)");
+            st.setString(1, projectName);
+            st.setString(2, projectDescription);
+            st.setString(3, projectStartDate);
+            st.setString(4, projectEndDate);
+            st.setString(5, projectStatus);
+            st.setInt(6, registration);
+            int res = st.executeUpdate();
+            JOptionPane.showMessageDialog(rootPane, "Projeto cadastrado com sucesso!", "Sucesso",
+                    JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void projectCheckFields(String projectName, String projectDescription, String projectStartDate,
+            String projectEndDate, String projectStatus, String registration) {
+        if (projectName.isEmpty() || projectDescription.isEmpty() || projectStartDate.isEmpty()
+                || projectEndDate.isEmpty()
+                || projectStatus.isEmpty() || registration.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Todos os campos de cadastro devem ser preenchidos!", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            int registrationInt = Integer.parseInt(registration);
+            projectRegister(projectName, projectDescription, projectStartDate, projectEndDate, projectStatus,
+                    registrationInt);
+        }
+    }
+
+    public TableCreateProject(DBConnection conn) {
+        this.conn = conn;
+        setResizable(false);
+        initComponents();
+
+    }
+
     public String getRegistrationString() {
         return registrationString;
     }
@@ -73,54 +121,6 @@ public class TableCreateProject extends javax.swing.JFrame {
         this.projectStatus = projectStatus;
     }
 
-    public void reloadTableCreateProject() {
-        jTextField2.setText(this.registrationString);
-        System.err.println("reloadTableCreateProject");
-        // initComponents();
-    }
-
-    private void projectRegister(String projectName, String projectDescription, String projectStartDate,
-            String projectEndDate, String projectStatus, int registration) {
-        try {
-            PreparedStatement st = (PreparedStatement) conn.getConnection()
-                    .prepareStatement(
-                            "INSERT INTO projeto (nome,descricao,dataInicio,dataFim,status,usuario_matricula) VALUES(?,?,?,?,?,?)");
-            st.setString(1, projectName);
-            st.setString(2, projectDescription);
-            st.setString(3, projectStartDate);
-            st.setString(4, projectEndDate);
-            st.setString(5, projectStatus);
-            st.setInt(6, registration);
-            int res = st.executeUpdate();
-            JOptionPane.showMessageDialog(rootPane, "Projeto cadastrado com sucesso!", "Sucesso",
-                    JOptionPane.INFORMATION_MESSAGE);
-            st.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void projectCheckFields(String projectName, String projectDescription, String projectStartDate,
-            String projectEndDate, String projectStatus, String registration) {
-        if (projectName.isEmpty() || projectDescription.isEmpty() || projectStartDate.isEmpty()
-                || projectEndDate.isEmpty()
-                || projectStatus.isEmpty() || registration.isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Todos os campos de cadastro devem ser preenchidos!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        } else {
-            int registrationInt = Integer.parseInt(registration);
-            projectRegister(projectName, projectDescription, projectStartDate, projectEndDate, projectStatus,
-                    registrationInt);
-        }
-    }
-
-    public TableCreateProject(DBConnection conn) {
-        this.conn = conn;
-        setResizable(false);
-        initComponents();
-
-    }
-
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -139,6 +139,11 @@ public class TableCreateProject extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
+        createMarkButton = new javax.swing.JButton();
+        createTaskButton = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Criar projetos");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -168,71 +173,87 @@ public class TableCreateProject extends javax.swing.JFrame {
             }
         });
 
+        createMarkButton.setText("Criar meta");
+        createMarkButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createMarkButtonMouseClicked(evt);
+            }
+        });
+
+        createTaskButton.setText("Criar tarefa");
+        createTaskButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createTaskButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfDescription, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(saveButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tfName)
-                                    .addComponent(tfStartDate, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(60, 60, 60)
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                                        .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(58, 58, 58))
+                        .addGap(38, 38, 38)
+                        .addComponent(createMarkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                        .addComponent(createTaskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(124, 124, 124)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfEndDate, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(tfStartDate)
+                            .addComponent(jTextField2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfName)
+                            .addComponent(tfStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(tfDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))
+                .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
+                    .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(50, 50, 50)
+                    .addComponent(jLabel3))
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
-                .addComponent(saveButton)
-                .addGap(44, 44, 44))
+                    .addComponent(saveButton)
+                    .addComponent(createMarkButton)
+                    .addComponent(createTaskButton))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,14 +264,22 @@ public class TableCreateProject extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void createMarkButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createMarkButtonMouseClicked
+        TableCreateMark tableCreateMark = new TableCreateMark(this.conn);
+        tableCreateMark.setVisible(true);
+    }//GEN-LAST:event_createMarkButtonMouseClicked
+
+    private void createTaskButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTaskButtonMouseClicked
+        TableCreateTask tableCreateTask = new TableCreateTask(this.conn);
+        tableCreateTask.setVisible(true);
+    }//GEN-LAST:event_createTaskButtonMouseClicked
 
     private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tfNameActionPerformed
 
@@ -275,6 +304,8 @@ public class TableCreateProject extends javax.swing.JFrame {
     }// GEN-LAST:event_saveButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createMarkButton;
+    private javax.swing.JButton createTaskButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

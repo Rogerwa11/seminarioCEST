@@ -23,15 +23,15 @@ public class ProjectDAO {
             return null;
         }
 
-        int idBD = rs.getInt("idProjeto");
-        String nameBD = rs.getString("nome");
-        String descriptionBD = rs.getString("descricao");
-        String startDateBD = rs.getString("dataInicio");
-        String endDateBD = rs.getString("dataFim");
-        String status = rs.getString("status");
-        int userRegistrationBD = rs.getInt("usuario_matricula");
+        int idDB = rs.getInt("idProjeto");
+        String nameDB = rs.getString("nome");
+        String descriptionDB = rs.getString("descricao");
+        String startDateDB = rs.getString("dataInicio");
+        String endDateDB = rs.getString("dataFim");
+        String statusDB = rs.getString("status");
+        int userRegistrationDB = rs.getInt("usuario_matricula");
 
-        Project project = new Project(idBD, nameBD, descriptionBD, startDateBD, endDateBD, status, userRegistrationBD);
+        Project project = new Project(idDB, nameDB, descriptionDB, startDateDB, endDateDB, statusDB, userRegistrationDB);
 
         rs.close();
         st.close();

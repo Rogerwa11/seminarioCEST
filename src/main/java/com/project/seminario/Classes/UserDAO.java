@@ -24,12 +24,12 @@ public class UserDAO {
         }
 
         int registrationDB = rs.getInt("matricula");
-        String courseBD = rs.getString("curso");
-        String passwordBD = rs.getString("senha");
-        String nameBD = rs.getString("nome");
-        String emailBD = rs.getString("email");
+        String courseDB = rs.getString("curso");
+        String passwordDB = rs.getString("senha");
+        String nameDB = rs.getString("nome");
+        String emailDB = rs.getString("email");
 
-        User user = new User(registrationDB, courseBD, passwordBD, nameBD, emailBD);
+        User user = new User(registrationDB, courseDB, passwordDB, nameDB, emailDB);
 
         rs.close();
         st.close();
