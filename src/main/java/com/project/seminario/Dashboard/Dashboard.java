@@ -69,7 +69,7 @@ public class Dashboard extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menú principal");
+        setTitle("Menu principal");
         setMaximumSize(new java.awt.Dimension(910, 560));
         setMinimumSize(new java.awt.Dimension(910, 560));
         setPreferredSize(new java.awt.Dimension(1600, 900));
