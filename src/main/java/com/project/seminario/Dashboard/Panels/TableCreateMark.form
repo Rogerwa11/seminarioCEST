@@ -52,9 +52,9 @@
                           <Component id="tfStatus" max="32767" attributes="0"/>
                           <Component id="tfProjectId" pref="200" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jLabel1" min="-2" pref="60" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -104,7 +104,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o da meta"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">

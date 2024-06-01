@@ -153,7 +153,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/images/usuario-do-circulo.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Usuario" postCode="userInfosButton.setBorder(null);&#xa;userInfosButton.setContentAreaFilled(false);"/>
+                    <Property name="text" type="java.lang.String" value="Usu&#xe1;rio" postCode="userInfosButton.setBorder(null);&#xa;userInfosButton.setContentAreaFilled(false);"/>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="horizontalTextPosition" type="int" value="4"/>
                     <Property name="iconTextGap" type="int" value="60"/>

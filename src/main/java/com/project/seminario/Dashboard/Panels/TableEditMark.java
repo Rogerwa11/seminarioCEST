@@ -155,7 +155,7 @@ public class TableEditMark extends javax.swing.JFrame {
             }
         });
 
-        saveButton.setText("Salvar");
+        saveButton.setText("Editar meta");
         saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 saveButtonMouseClicked(evt);
@@ -175,7 +175,7 @@ public class TableEditMark extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Deletar meta:");
+        jLabel4.setText("Deletar meta");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -197,7 +197,7 @@ public class TableEditMark extends javax.swing.JFrame {
                 .addComponent(tfSearchId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(searchButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deleteMarkButton)

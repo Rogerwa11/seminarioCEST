@@ -47,73 +47,84 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="tfResponsibleRegistration" min="-2" pref="200" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" pref="116" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="130" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel3" min="-2" pref="89" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tfPriority" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" pref="95" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tfStatus" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="tfDescription" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="tfStartDate" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="tfStatus" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfResponsibleRegistration" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="111" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel2" pref="58" max="32767" attributes="0"/>
-                              <Component id="jLabel4" max="32767" attributes="0"/>
-                              <Component id="jLabel6" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tfEndDate" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="tfMarkId" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="SaveButton" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="tfPriority" pref="200" max="32767" attributes="0"/>
-                      <Component id="tfEndDate" max="32767" attributes="0"/>
-                      <Component id="tfMarkId" max="32767" attributes="0"/>
-                      <Component id="SaveButton" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfDescription" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfPriority" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfStartDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfEndDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfDescription" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfPriority" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfMarkId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStartDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEndDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfResponsibleRegistration" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="SaveButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfMarkId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Component id="tfResponsibleRegistration" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="SaveButton" min="-2" pref="60" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -135,7 +146,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="SaveButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Criar"/>
+            <Property name="text" type="java.lang.String" value="Criar tarefa"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SaveButtonMouseClicked"/>
@@ -143,37 +154,37 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o da tarefa"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Prioridade"/>
+            <Property name="text" type="java.lang.String" value="N&#xed;vel de Prioridade"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="data inicio"/>
+            <Property name="text" type="java.lang.String" value="Data de inicio"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="data fim"/>
+            <Property name="text" type="java.lang.String" value="Data de entrega"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="status"/>
+            <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="id meta"/>
+            <Property name="text" type="java.lang.String" value="ID da meta "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="responsavel"/>
+            <Property name="text" type="java.lang.String" value="Matr&#xed;cula do respons&#xe1;vel"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -96,7 +96,7 @@ public class Dashboard extends javax.swing.JFrame {
         userInfosButton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         userInfosButton.setForeground(new java.awt.Color(255, 255, 255));
         userInfosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/usuario-do-circulo.png"))); // NOI18N
-        userInfosButton.setText("Usuario");
+        userInfosButton.setText("Usuário");
         userInfosButton.setBorder(null);
         userInfosButton.setContentAreaFilled(false);
         userInfosButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
