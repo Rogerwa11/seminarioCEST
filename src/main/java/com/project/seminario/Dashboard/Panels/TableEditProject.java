@@ -117,9 +117,13 @@ public class TableEditProject extends javax.swing.JFrame {
     private void clearProjectFields() {
         tfDescription.setText("");
         tfEndDateDD.setText("");
+        tfEndDateMM.setText("");
+        tfEndDateAAAA.setText("");
         tfIdSearch.setText("");
         tfName.setText("");
         tfStartDateDD.setText("");
+        tfStartDateMM.setText("");
+        tfStartDateAAAA.setText("");
         tfStatus.setText("");
     }
 

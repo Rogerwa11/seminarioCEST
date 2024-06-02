@@ -49,15 +49,15 @@ public class TableEditTask extends javax.swing.JFrame {
                 setEndDateDDMMAAAA();
 
                 tfDescription.setText(this.description);
-                
-                if(this.priority.contains("Baixa")){
+
+                if (this.priority.contains("Baixa")) {
                     ComboBoxPriority.setSelectedIndex(0);
-                }else if(this.priority.contains("Alta")){
+                } else if (this.priority.contains("Alta")) {
                     ComboBoxPriority.setSelectedIndex(2);
-                }else{
+                } else {
                     ComboBoxPriority.setSelectedIndex(1);
                 }
-                
+
                 tfStartDateDD.setText(this.startDateDD);
                 tfStartDateMM.setText(this.startDateMM);
                 tfStartDateAAAA.setText(this.startDateAAAA);
@@ -136,11 +136,16 @@ public class TableEditTask extends javax.swing.JFrame {
     private void clearTaskFields() {
         tfDescription.setText("");
         tfEndDateDD.setText("");
+        tfEndDateMM.setText("");
+        tfEndDateAAAA.setText("");
+
         tfMarkId.setText("");
         //tfPriority.setText("");
         tfResponsibleRegistration.setText("");
         tfSearchedId.setText("");
         tfStartDateDD.setText("");
+        tfStartDateMM.setText("");
+        tfStartDateAAAA.setText("");
         tfStatus.setText("");
     }
 
