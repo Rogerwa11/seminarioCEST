@@ -48,7 +48,6 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                      <Component id="tfStartDate" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="tfStatus" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
@@ -62,31 +61,56 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="searchButton" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="tfStartDateDD" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tfStartDateMM" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tfStartDateAAAA" min="-2" pref="45" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tfPriority" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="tfEndDate" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="tfMarkId" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tfMarkId" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="tfEndDateDD" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tfEndDateMM" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tfEndDateAAAA" min="-2" pref="45" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel7" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" min="-2" pref="78" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="deleteTaskButton" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="saveButton" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel8" min="-2" pref="118" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" min="-2" pref="78" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="deleteTaskButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="saveButton" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ComboBoxPriority" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -111,7 +135,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tfDescription" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfPriority" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ComboBoxPriority" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -120,8 +144,12 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfStartDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfEndDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStartDateDD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEndDateDD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStartDateMM" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStartDateAAAA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEndDateMM" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEndDateAAAA" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -188,7 +216,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfDescription">
         </Component>
-        <Component class="javax.swing.JTextField" name="tfStartDate">
+        <Component class="javax.swing.JTextField" name="tfStartDateDD">
         </Component>
         <Component class="javax.swing.JTextField" name="tfStatus">
         </Component>
@@ -211,9 +239,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfMarkId">
         </Component>
-        <Component class="javax.swing.JTextField" name="tfEndDate">
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfPriority">
+        <Component class="javax.swing.JTextField" name="tfEndDateDD">
         </Component>
         <Component class="javax.swing.JButton" name="saveButton">
           <Properties>
@@ -235,6 +261,28 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="deleteTaskButtonMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfStartDateMM">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfStartDateAAAA">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfEndDateMM">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfEndDateAAAA">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="ComboBoxPriority">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="Baixa"/>
+                <StringItem index="1" value="M&#xe9;dia"/>
+                <StringItem index="2" value="Alta"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

@@ -15,8 +15,14 @@ public class TableEditTask extends javax.swing.JFrame {
     private String searchedId = "";
     private String description = "";
     private String priority = "";
-    private String startDate = "";
-    private String endDate = "";
+    private String startDate;
+    private String startDateDD;
+    private String startDateMM;
+    private String startDateAAAA;
+    private String endDate;
+    private String endDateDD;
+    private String endDateMM;
+    private String endDateAAAA;
     private String status = "";
     private String markId = "";
     private String responsibleRegistration = "";
@@ -39,11 +45,25 @@ public class TableEditTask extends javax.swing.JFrame {
                 setStatus(task.getStatus());
                 setMarkId(task.getMarkId());
                 setResponsibleRegistration(task.getResponsibleRegistration());
+                setStartDateDDMMAAAA();
+                setEndDateDDMMAAAA();
 
                 tfDescription.setText(this.description);
-                tfPriority.setText(this.priority);
-                tfStartDate.setText(this.startDate);
-                tfEndDate.setText(this.endDate);
+                
+                if(this.priority.contains("Baixa")){
+                    ComboBoxPriority.setSelectedIndex(0);
+                }else if(this.priority.contains("Alta")){
+                    ComboBoxPriority.setSelectedIndex(2);
+                }else{
+                    ComboBoxPriority.setSelectedIndex(1);
+                }
+                
+                tfStartDateDD.setText(this.startDateDD);
+                tfStartDateMM.setText(this.startDateMM);
+                tfStartDateAAAA.setText(this.startDateAAAA);
+                tfEndDateDD.setText(this.endDateDD);
+                tfEndDateMM.setText(this.endDateMM);
+                tfEndDateAAAA.setText(this.endDateAAAA);
                 tfStatus.setText(this.status);
                 tfMarkId.setText(this.markId);
                 tfResponsibleRegistration.setText(this.responsibleRegistration);
@@ -109,7 +129,35 @@ public class TableEditTask extends javax.swing.JFrame {
         if (response == JOptionPane.YES_OPTION) {
             int taskIdInt = Integer.parseInt(tfSearchedId.getText());
             deleteTask(taskIdInt);
+            clearTaskFields();
         }
+    }
+
+    private void clearTaskFields() {
+        tfDescription.setText("");
+        tfEndDateDD.setText("");
+        tfMarkId.setText("");
+        //tfPriority.setText("");
+        tfResponsibleRegistration.setText("");
+        tfSearchedId.setText("");
+        tfStartDateDD.setText("");
+        tfStatus.setText("");
+    }
+
+    private void setStartDateDDMMAAAA() {
+        String[] startDate = this.startDate.split("-");
+
+        this.startDateDD = startDate[2];
+        this.startDateMM = startDate[1];
+        this.startDateAAAA = startDate[0];
+    }
+
+    private void setEndDateDDMMAAAA() {
+        String[] endDate = this.endDate.split("-");
+
+        this.endDateDD = endDate[2];
+        this.endDateMM = endDate[1];
+        this.endDateAAAA = endDate[0];
     }
 
     public String getSearchedId() {
@@ -199,18 +247,22 @@ public class TableEditTask extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tfDescription = new javax.swing.JTextField();
-        tfStartDate = new javax.swing.JTextField();
+        tfStartDateDD = new javax.swing.JTextField();
         tfStatus = new javax.swing.JTextField();
         tfResponsibleRegistration = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         tfMarkId = new javax.swing.JTextField();
-        tfEndDate = new javax.swing.JTextField();
-        tfPriority = new javax.swing.JTextField();
+        tfEndDateDD = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         deleteTaskButton = new javax.swing.JButton();
+        tfStartDateMM = new javax.swing.JTextField();
+        tfStartDateAAAA = new javax.swing.JTextField();
+        tfEndDateMM = new javax.swing.JTextField();
+        tfEndDateAAAA = new javax.swing.JTextField();
+        ComboBoxPriority = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Editar tarefas");
@@ -258,6 +310,8 @@ public class TableEditTask extends javax.swing.JFrame {
             }
         });
 
+        ComboBoxPriority.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Média", "Alta" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -266,7 +320,6 @@ public class TableEditTask extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,27 +331,46 @@ public class TableEditTask extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfSearchedId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton)))
-                .addGap(34, 34, 34)
+                        .addComponent(searchButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tfStartDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfStartDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfStartDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfPriority, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfMarkId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deleteTaskButton))
-                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfMarkId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tfEndDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfEndDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfEndDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(deleteTaskButton))
+                                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ComboBoxPriority, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,15 +389,19 @@ public class TableEditTask extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPriority, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBoxPriority, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfStartDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfStartDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfStartDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -366,9 +442,19 @@ public class TableEditTask extends javax.swing.JFrame {
 
     private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
         setDescription(tfDescription.getText());
-        setPriority(tfPriority.getText());
-        setStartDate(tfStartDate.getText());
-        setEndDate(tfEndDate.getText());
+        setPriority(ComboBoxPriority.getSelectedItem().toString());
+
+        this.startDateDD = tfStartDateDD.getText();
+        this.startDateMM = tfStartDateMM.getText();
+        this.startDateAAAA = tfStartDateAAAA.getText();
+
+        this.endDateDD = tfEndDateDD.getText();
+        this.endDateMM = tfEndDateMM.getText();
+        this.endDateAAAA = tfEndDateAAAA.getText();
+
+        setStartDate(this.startDateAAAA + this.startDateMM + this.startDateDD);
+        setEndDate(this.endDateAAAA + this.endDateMM + this.endDateDD);
+
         setStatus(tfStatus.getText());
         int markIdInt = Integer.parseInt(tfMarkId.getText());
         int responsibleRegistrationInt = Integer.parseInt(tfResponsibleRegistration.getText());
@@ -381,9 +467,11 @@ public class TableEditTask extends javax.swing.JFrame {
 
     private void deleteTaskButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteTaskButtonMouseClicked
         confirmdeleteTask();
+
     }//GEN-LAST:event_deleteTaskButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxPriority;
     private javax.swing.JButton deleteTaskButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -398,12 +486,15 @@ public class TableEditTask extends javax.swing.JFrame {
     private javax.swing.JButton saveButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField tfDescription;
-    private javax.swing.JTextField tfEndDate;
+    private javax.swing.JTextField tfEndDateAAAA;
+    private javax.swing.JTextField tfEndDateDD;
+    private javax.swing.JTextField tfEndDateMM;
     private javax.swing.JTextField tfMarkId;
-    private javax.swing.JTextField tfPriority;
     private javax.swing.JTextField tfResponsibleRegistration;
     private javax.swing.JTextField tfSearchedId;
-    private javax.swing.JTextField tfStartDate;
+    private javax.swing.JTextField tfStartDateAAAA;
+    private javax.swing.JTextField tfStartDateDD;
+    private javax.swing.JTextField tfStartDateMM;
     private javax.swing.JTextField tfStatus;
     // End of variables declaration//GEN-END:variables
 }

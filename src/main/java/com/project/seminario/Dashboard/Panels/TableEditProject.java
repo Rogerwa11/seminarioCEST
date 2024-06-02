@@ -15,7 +15,13 @@ public class TableEditProject extends javax.swing.JFrame {
     private String name;
     private String description;
     private String startDate;
+    private String startDateDD;
+    private String startDateMM;
+    private String startDateAAAA;
     private String endDate;
+    private String endDateDD;
+    private String endDateMM;
+    private String endDateAAAA;
     private String status;
 
     public void getProjectInformations(int id) {
@@ -30,6 +36,8 @@ public class TableEditProject extends javax.swing.JFrame {
                 setEndDate(project.getEndDate());
                 setStatus(project.getStatus());
                 setUserRegistration(project.getUserRegistration());
+                setStartDateDDMMAAAA();
+                setEndDateDDMMAAAA();
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Projeto não encontrado com ID: " + id, "Error",
                         JOptionPane.ERROR_MESSAGE);
@@ -44,8 +52,17 @@ public class TableEditProject extends javax.swing.JFrame {
 
             setName(tfName.getText());
             setStatus(tfStatus.getText());
-            setStartDate(tfStartDate.getText());
-            setEndDate(tfEndDate.getText());
+
+            this.startDateDD = tfStartDateDD.getText();
+            this.startDateMM = tfStartDateMM.getText();
+            this.startDateAAAA = tfStartDateAAAA.getText();
+
+            this.endDateDD = tfEndDateDD.getText();
+            this.endDateMM = tfEndDateMM.getText();
+            this.endDateAAAA = tfEndDateAAAA.getText();
+
+            setStartDate(this.startDateAAAA + this.startDateMM + this.startDateDD);
+            setEndDate(this.endDateAAAA + this.endDateMM + this.endDateDD);
             setDescription(tfDescription.getText());
 
             PreparedStatement st = this.conn.getConnection().prepareStatement("UPDATE projeto SET nome = ?, descricao = ?, dataInicio = ?, dataFim = ?, status = ? WHERE idProjeto = ?");
@@ -90,14 +107,40 @@ public class TableEditProject extends javax.swing.JFrame {
 
     private void confirmDeleteProject() {
         int response = JOptionPane.showConfirmDialog(this, "Você deseja excluir o projeto: " + this.name, "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if(response == JOptionPane.YES_OPTION){
+        if (response == JOptionPane.YES_OPTION) {
             int projectIdInt = Integer.parseInt(tfIdSearch.getText());
             deleteProject(projectIdInt);
+            clearProjectFields();
         }
+    }
+
+    private void clearProjectFields() {
+        tfDescription.setText("");
+        tfEndDateDD.setText("");
+        tfIdSearch.setText("");
+        tfName.setText("");
+        tfStartDateDD.setText("");
+        tfStatus.setText("");
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    private void setStartDateDDMMAAAA() {
+        String[] startDate = this.startDate.split("-");
+
+        this.startDateDD = startDate[2];
+        this.startDateMM = startDate[1];
+        this.startDateAAAA = startDate[0];
+    }
+
+    private void setEndDateDDMMAAAA() {
+        String[] endDate = this.endDate.split("-");
+
+        this.endDateDD = endDate[2];
+        this.endDateMM = endDate[1];
+        this.endDateAAAA = endDate[0];
     }
 
     public void setUserRegistration(int userRegistration) {
@@ -137,8 +180,8 @@ public class TableEditProject extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
         tfStatus = new javax.swing.JTextField();
-        tfStartDate = new javax.swing.JTextField();
-        tfEndDate = new javax.swing.JTextField();
+        tfStartDateDD = new javax.swing.JTextField();
+        tfEndDateDD = new javax.swing.JTextField();
         tfDescription = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -151,6 +194,10 @@ public class TableEditProject extends javax.swing.JFrame {
         editTaskButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         deleteButton = new javax.swing.JButton();
+        tfStartDateMM = new javax.swing.JTextField();
+        tfStartDateAAAA = new javax.swing.JTextField();
+        tfEndDateMM = new javax.swing.JTextField();
+        tfEndDateAAAA = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Editar projetos");
@@ -236,10 +283,14 @@ public class TableEditProject extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(deleteButton))
                                     .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tfEndDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfEndDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfEndDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -250,7 +301,13 @@ public class TableEditProject extends javax.swing.JFrame {
                                     .addComponent(editTaskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(98, 98, 98)
                                     .addComponent(jButton1))
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfStartDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfStartDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfStartDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
@@ -277,8 +334,12 @@ public class TableEditProject extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfStartDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfStartDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfStartDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -309,8 +370,8 @@ public class TableEditProject extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         String nameString = tfName.getText();
         String statusString = tfStatus.getText();
-        String startDateString = tfStartDate.getText();
-        String endDateString = tfEndDate.getText();
+        String startDateString = tfStartDateDD.getText();
+        String endDateString = tfEndDateDD.getText();
         String descriptionString = tfDescription.getText();
 
         checkFields(nameString, statusString, startDateString, endDateString, descriptionString);
@@ -324,8 +385,12 @@ public class TableEditProject extends javax.swing.JFrame {
 
         tfName.setText(this.name);
         tfStatus.setText(this.status);
-        tfStartDate.setText(this.startDate);
-        tfEndDate.setText(this.endDate);
+        tfStartDateDD.setText(this.startDateDD);
+        tfStartDateMM.setText(this.startDateMM);
+        tfStartDateAAAA.setText(this.startDateAAAA);
+        tfEndDateDD.setText(this.endDateDD);
+        tfEndDateMM.setText(this.endDateMM);
+        tfEndDateAAAA.setText(this.endDateAAAA);
         tfDescription.setText(this.description);
         setId(searchIdInt);
 
@@ -365,10 +430,14 @@ public class TableEditProject extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField tfDescription;
-    private javax.swing.JTextField tfEndDate;
+    private javax.swing.JTextField tfEndDateAAAA;
+    private javax.swing.JTextField tfEndDateDD;
+    private javax.swing.JTextField tfEndDateMM;
     private javax.swing.JTextField tfIdSearch;
     private javax.swing.JTextField tfName;
-    private javax.swing.JTextField tfStartDate;
+    private javax.swing.JTextField tfStartDateAAAA;
+    private javax.swing.JTextField tfStartDateDD;
+    private javax.swing.JTextField tfStartDateMM;
     private javax.swing.JTextField tfStatus;
     // End of variables declaration//GEN-END:variables
 }

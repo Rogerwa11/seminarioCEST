@@ -101,7 +101,8 @@ public class TableCreateProject extends javax.swing.JFrame {
         return projectStartDate;
     }
 
-    public void setProjectStartDate(String projectStartDate) {
+    public void setProjectStartDate(String projectStartDateAAAA, String projectStartDateMM, String projectStartDateDD) {
+        String projectStartDate = projectStartDateAAAA+projectStartDateMM+projectStartDateDD;
         this.projectStartDate = projectStartDate;
     }
 
@@ -109,7 +110,8 @@ public class TableCreateProject extends javax.swing.JFrame {
         return projectEndDate;
     }
 
-    public void setProjectEndDate(String projectEndDate) {
+    public void setProjectEndDate(String projectEndDateAAAA, String projectEndDateMM, String projectEndDateDD) {
+        String projectEndDate = projectEndDateAAAA+ projectEndDateMM+ projectEndDateDD;
         this.projectEndDate = projectEndDate;
     }
 
@@ -121,15 +123,14 @@ public class TableCreateProject extends javax.swing.JFrame {
         this.projectStatus = projectStatus;
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        saveButton = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
         tfStatus = new javax.swing.JTextField();
-        tfStartDate = new javax.swing.JTextField();
-        tfEndDate = new javax.swing.JTextField();
+        tfStartDateDD = new javax.swing.JTextField();
+        tfEndDateDD = new javax.swing.JTextField();
         tfDescription = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -141,21 +142,25 @@ public class TableCreateProject extends javax.swing.JFrame {
         tfName = new javax.swing.JTextField();
         createMarkButton = new javax.swing.JButton();
         createTaskButton = new javax.swing.JButton();
+        tfStartDateMM = new javax.swing.JTextField();
+        tfStartDateAAAA = new javax.swing.JTextField();
+        tfEndDateMM = new javax.swing.JTextField();
+        tfEndDateAAAA = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Criar projetos");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        saveButton.setText("Criar projeto");
-        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        createButton.setText("Criar projeto");
+        createButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                saveButtonMouseClicked(evt);
+                createButtonMouseClicked(evt);
             }
         });
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
+        createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
+                createButtonActionPerformed(evt);
             }
         });
 
@@ -163,9 +168,9 @@ public class TableCreateProject extends javax.swing.JFrame {
 
         jLabel2.setText("Status");
 
-        jLabel3.setText("Data de inicio");
+        jLabel3.setText("Data de inicio DD/MM/AAAA");
 
-        jLabel4.setText("Data de entrega");
+        jLabel4.setText("Data de entrega DD/MM/AAAA");
 
         jLabel5.setText("Descrição");
 
@@ -204,15 +209,26 @@ public class TableCreateProject extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addComponent(createTaskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfEndDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfEndDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfEndDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfStartDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfStartDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfStartDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(89, 89, 89)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,7 +257,9 @@ public class TableCreateProject extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfStartDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfStartDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfStartDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -249,10 +267,12 @@ public class TableCreateProject extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEndDateDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndDateAAAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(createMarkButton)
                     .addComponent(createTaskButton))
                 .addGap(30, 30, 30))
@@ -283,19 +303,19 @@ public class TableCreateProject extends javax.swing.JFrame {
         tableCreateTask.setVisible(true);
     }//GEN-LAST:event_createTaskButtonMouseClicked
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saveButtonActionPerformed
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        
+    }//GEN-LAST:event_createButtonActionPerformed
 
-    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tfNameActionPerformed
+    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {
 
     }
 
-    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_saveButtonMouseClicked
+    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {
         setProjectName(tfName.getText());
         setProjectDescription(tfDescription.getText());
-        setProjectEndDate(tfEndDate.getText());
-        setProjectStartDate(tfStartDate.getText());
+        setProjectEndDate(tfEndDateAAAA.getText(), tfEndDateMM.getText(), tfEndDateDD.getText());
+        setProjectStartDate(tfStartDateAAAA.getText(), tfStartDateMM.getText(), tfStartDateDD.getText());
         setProjectStatus(tfStatus.getText());
 
         // System.out.print(this.projectName+"\n");
@@ -304,12 +324,14 @@ public class TableCreateProject extends javax.swing.JFrame {
         // System.out.print(this.projectEndDate+"\n");
         // System.out.print(this.projectStartDate+"\n");
         // System.out.print(this.projectStatus+"\n");
+        
         projectCheckFields(projectName, projectDescription, projectStartDate, projectEndDate, projectStatus,
                 this.registrationString);
         dispose();
-    }// GEN-LAST:event_saveButtonMouseClicked
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createButton;
     private javax.swing.JButton createMarkButton;
     private javax.swing.JButton createTaskButton;
     private javax.swing.JLabel jLabel1;
@@ -320,11 +342,14 @@ public class TableCreateProject extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JButton saveButton;
     private javax.swing.JTextField tfDescription;
-    private javax.swing.JTextField tfEndDate;
+    private javax.swing.JTextField tfEndDateAAAA;
+    private javax.swing.JTextField tfEndDateDD;
+    private javax.swing.JTextField tfEndDateMM;
     private javax.swing.JTextField tfName;
-    private javax.swing.JTextField tfStartDate;
+    private javax.swing.JTextField tfStartDateAAAA;
+    private javax.swing.JTextField tfStartDateDD;
+    private javax.swing.JTextField tfStartDateMM;
     private javax.swing.JTextField tfStatus;
     // End of variables declaration//GEN-END:variables
 }

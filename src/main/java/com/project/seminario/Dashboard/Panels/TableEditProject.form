@@ -72,12 +72,17 @@
                                           <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="tfStatus" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="tfEndDate" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Component id="jLabel3" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                                       <Component id="jLabel5" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="tfEndDateDD" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tfEndDateMM" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tfEndDateAAAA" min="-2" pref="45" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <Component id="tfStartDate" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="tfName" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
@@ -90,6 +95,13 @@
                                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel6" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="tfStartDateDD" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tfStartDateMM" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tfStartDateAAAA" min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -126,8 +138,12 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfStartDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfEndDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStartDateDD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEndDateDD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStartDateMM" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfStartDateAAAA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEndDateMM" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEndDateAAAA" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -159,9 +175,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfStatus">
         </Component>
-        <Component class="javax.swing.JTextField" name="tfStartDate">
+        <Component class="javax.swing.JTextField" name="tfStartDateDD">
         </Component>
-        <Component class="javax.swing.JTextField" name="tfEndDate">
+        <Component class="javax.swing.JTextField" name="tfEndDateDD">
         </Component>
         <Component class="javax.swing.JTextField" name="tfDescription">
         </Component>
@@ -234,6 +250,14 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="deleteButtonMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfStartDateMM">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfStartDateAAAA">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfEndDateMM">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfEndDateAAAA">
         </Component>
       </SubComponents>
     </Container>

@@ -69,6 +69,13 @@ public class TableEditMark extends javax.swing.JFrame {
         }
     }
 
+    private void clearMarkFields() {
+        tfDescription.setText("");
+        tfProjectId.setText("");
+        tfSearchId.setText("");
+        tfStatus.setText("");
+    }
+
     public TableEditMark(DBConnection conn) {
         this.conn = conn;
         initComponents();
@@ -90,6 +97,7 @@ public class TableEditMark extends javax.swing.JFrame {
         if (response == JOptionPane.YES_OPTION) {
             int markIdInt = Integer.parseInt(tfSearchId.getText());
             deleteMark(markIdInt);
+            clearMarkFields();
         }
     }
 
